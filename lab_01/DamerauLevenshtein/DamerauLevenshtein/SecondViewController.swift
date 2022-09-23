@@ -36,7 +36,6 @@ class SecondViewController: UIViewController, ChartViewDelegate {
 
     }
 
-
     func go(_ someFunc: (String, String) -> Int) -> Array<Double> {
         var times = [Double]()
         for i in arr {
@@ -47,8 +46,11 @@ class SecondViewController: UIViewController, ChartViewDelegate {
     }
     
     func setupLineCharts() {
-        lineChart.frame = CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.width)
-        lineChart.center = view.center
+        if view.frame.size.width > 420 {
+            lineChart.frame = CGRect(x: 0, y: 200, width: view.frame.size.width - 120, height: view.frame.size.width - 200)
+        } else {
+            lineChart.frame = CGRect(x: 0, y: 200, width: view.frame.size.width, height: view.frame.size.width)
+        }
     }
     
     func setupLabels() {
