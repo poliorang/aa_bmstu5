@@ -132,6 +132,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="button" destination="BrL-IV-j61" id="oIo-R5-uzo"/>
                         <outlet property="firstLabel" destination="Sc7-hQ-gP1" id="7Ny-8Z-xRO"/>
                         <outlet property="firstWordField" destination="Y6E-is-7BF" id="mbw-Eo-Jjz"/>
                         <outlet property="mainLabel" destination="783-eb-hGc" id="PzM-aG-T6R"/>

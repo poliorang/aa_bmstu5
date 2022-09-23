@@ -13,6 +13,7 @@ public var firstWord = "кот"
 public var secondWord = "скат"
 public var function = ["Recursive", "Matrix", "Recursive with cash"]
 public var currentFunction = 0
+public var spinnerView : UIView?
 
 class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var mainLabel: UILabel!
@@ -24,7 +25,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var firstWordField: UITextField!
     @IBOutlet weak var secondWordField: UITextField!
 
-    
+    @IBOutlet weak var button: UIButton!
     @IBAction func firstFieldAction(_ sender: Any) {
         firstWord = firstWordField.text ?? "кот"
     }
@@ -32,14 +33,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
         secondWord = secondWordField.text ?? "скат"
     }
     
-
     @IBOutlet weak var methorPicker: UIPickerView!
     @IBAction func calculateButton(_ sender: Any) {
+        removeSpinner()
     }
-        
     
+        
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        button.addTarget(self, action: #selector(showSpinner), for: UIControl.Event.touchDown)
         
         methorPicker.dataSource = self
         methorPicker.delegate = self
@@ -67,6 +70,23 @@ class ViewController: UIViewController, UITextFieldDelegate {
     func setupDismissKeyboard() {
         let tap = UITapGestureRecognizer(target: self, action: #selector(UIInputViewController.dismissKeyboard))
         view.addGestureRecognizer(tap)
+    }
+    
+    @objc
+    func showSpinner() {
+        spinnerView = UIView(frame: self.view.bounds)
+        spinnerView?.backgroundColor = UIColor.init(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
+        let activityIndicator = UIActivityIndicatorView()
+//        activityIndicator.style.
+        activityIndicator.center = spinnerView!.center
+        activityIndicator.startAnimating()
+        spinnerView?.addSubview(activityIndicator)
+        self.view.addSubview(spinnerView!)
+    }
+    
+    func removeSpinner() {
+        spinnerView?.removeFromSuperview()
+        spinnerView = nil
     }
 }
 

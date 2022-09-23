@@ -12,6 +12,8 @@ var firstWordLabel = UILabel()
 var secondWordLabel = UILabel()
 
 class SecondViewController: UIViewController, ChartViewDelegate {
+    var mainViewController: ViewController?
+    
     var lineChart = LineChartView()
     
     var arr = [Int]()
@@ -22,6 +24,7 @@ class SecondViewController: UIViewController, ChartViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        mainViewController?.showSpinner()
         lineChart.delegate = self
         
         setupLabels()
@@ -119,6 +122,7 @@ class SecondViewController: UIViewController, ChartViewDelegate {
             let lineChartD = LineChartData(dataSets: dataSets)
             lineChart.data = lineChartD
         }
+        
     }
     
     func getArrayOfRepeate() -> Array<Int> {
