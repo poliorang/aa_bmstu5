@@ -1,0 +1,435 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4A9A1AC028DCBDD50094659F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9A1ABF28DCBDD50094659F /* AppDelegate.swift */; };
+		4A9A1AC228DCBDD50094659F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9A1AC128DCBDD50094659F /* SceneDelegate.swift */; };
+		4A9A1AC428DCBDD50094659F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9A1AC328DCBDD50094659F /* ViewController.swift */; };
+		4A9A1AC728DCBDD50094659F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A9A1AC528DCBDD50094659F /* Main.storyboard */; };
+		4A9A1AC928DCBDD90094659F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4A9A1AC828DCBDD90094659F /* Assets.xcassets */; };
+		4A9A1ACC28DCBDD90094659F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4A9A1ACA28DCBDD90094659F /* LaunchScreen.storyboard */; };
+		4A9A1AF428DD11DC0094659F /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9A1AF328DD11DC0094659F /* SecondViewController.swift */; };
+		4A9A1AF628DD17830094659F /* Algorithms.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9A1AF528DD17830094659F /* Algorithms.swift */; };
+		4A9A1AF828DD17D90094659F /* functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A9A1AF728DD17D90094659F /* functions.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		4A9A1ABC28DCBDD50094659F /* DamerauLevenshtein.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DamerauLevenshtein.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4A9A1ABF28DCBDD50094659F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		4A9A1AC128DCBDD50094659F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		4A9A1AC328DCBDD50094659F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		4A9A1AC628DCBDD50094659F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4A9A1AC828DCBDD90094659F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4A9A1ACB28DCBDD90094659F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		4A9A1ACD28DCBDD90094659F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4A9A1AF328DD11DC0094659F /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		4A9A1AF528DD17830094659F /* Algorithms.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Algorithms.swift; sourceTree = "<group>"; };
+		4A9A1AF728DD17D90094659F /* functions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = functions.swift; sourceTree = "<group>"; };
+		A4F59C0A69B26D1E007B1CDD /* Pods-DamerauLevenshtein.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DamerauLevenshtein.debug.xcconfig"; path = "Target Support Files/Pods-DamerauLevenshtein/Pods-DamerauLevenshtein.debug.xcconfig"; sourceTree = "<group>"; };
+		D527E0185997AF6496E5BFF7 /* Pods-DamerauLevenshtein.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-DamerauLevenshtein.release.xcconfig"; path = "Target Support Files/Pods-DamerauLevenshtein/Pods-DamerauLevenshtein.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4A9A1AB928DCBDD50094659F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3FCF851221A6E3A7912E08B6 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				A4F59C0A69B26D1E007B1CDD /* Pods-DamerauLevenshtein.debug.xcconfig */,
+				D527E0185997AF6496E5BFF7 /* Pods-DamerauLevenshtein.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		4A9A1AB328DCBDD40094659F = {
+			isa = PBXGroup;
+			children = (
+				4A9A1ABE28DCBDD50094659F /* DamerauLevenshtein */,
+				4A9A1ABD28DCBDD50094659F /* Products */,
+				3FCF851221A6E3A7912E08B6 /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		4A9A1ABD28DCBDD50094659F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4A9A1ABC28DCBDD50094659F /* DamerauLevenshtein.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4A9A1ABE28DCBDD50094659F /* DamerauLevenshtein */ = {
+			isa = PBXGroup;
+			children = (
+				4A9A1AF728DD17D90094659F /* functions.swift */,
+				4A9A1AF528DD17830094659F /* Algorithms.swift */,
+				4A9A1ABF28DCBDD50094659F /* AppDelegate.swift */,
+				4A9A1AC128DCBDD50094659F /* SceneDelegate.swift */,
+				4A9A1AC328DCBDD50094659F /* ViewController.swift */,
+				4A9A1AF328DD11DC0094659F /* SecondViewController.swift */,
+				4A9A1AC528DCBDD50094659F /* Main.storyboard */,
+				4A9A1AC828DCBDD90094659F /* Assets.xcassets */,
+				4A9A1ACA28DCBDD90094659F /* LaunchScreen.storyboard */,
+				4A9A1ACD28DCBDD90094659F /* Info.plist */,
+			);
+			path = DamerauLevenshtein;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4A9A1ABB28DCBDD50094659F /* DamerauLevenshtein */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4A9A1AD028DCBDD90094659F /* Build configuration list for PBXNativeTarget "DamerauLevenshtein" */;
+			buildPhases = (
+				1C23A21997451E9099DAF375 /* [CP] Check Pods Manifest.lock */,
+				4A9A1AB828DCBDD50094659F /* Sources */,
+				4A9A1AB928DCBDD50094659F /* Frameworks */,
+				4A9A1ABA28DCBDD50094659F /* Resources */,
+				B51A7CCDBBF4681C434F8B81 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DamerauLevenshtein;
+			productName = DamerauLevenshtein;
+			productReference = 4A9A1ABC28DCBDD50094659F /* DamerauLevenshtein.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4A9A1AB428DCBDD40094659F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1320;
+				LastUpgradeCheck = 1320;
+				TargetAttributes = {
+					4A9A1ABB28DCBDD50094659F = {
+						CreatedOnToolsVersion = 13.2.1;
+					};
+				};
+			};
+			buildConfigurationList = 4A9A1AB728DCBDD40094659F /* Build configuration list for PBXProject "DamerauLevenshtein" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4A9A1AB328DCBDD40094659F;
+			productRefGroup = 4A9A1ABD28DCBDD50094659F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4A9A1ABB28DCBDD50094659F /* DamerauLevenshtein */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4A9A1ABA28DCBDD50094659F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A9A1ACC28DCBDD90094659F /* LaunchScreen.storyboard in Resources */,
+				4A9A1AC928DCBDD90094659F /* Assets.xcassets in Resources */,
+				4A9A1AC728DCBDD50094659F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		1C23A21997451E9099DAF375 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-DamerauLevenshtein-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B51A7CCDBBF4681C434F8B81 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DamerauLevenshtein/Pods-DamerauLevenshtein-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-DamerauLevenshtein/Pods-DamerauLevenshtein-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-DamerauLevenshtein/Pods-DamerauLevenshtein-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4A9A1AB828DCBDD50094659F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4A9A1AF428DD11DC0094659F /* SecondViewController.swift in Sources */,
+				4A9A1AC428DCBDD50094659F /* ViewController.swift in Sources */,
+				4A9A1AC028DCBDD50094659F /* AppDelegate.swift in Sources */,
+				4A9A1AF628DD17830094659F /* Algorithms.swift in Sources */,
+				4A9A1AC228DCBDD50094659F /* SceneDelegate.swift in Sources */,
+				4A9A1AF828DD17D90094659F /* functions.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		4A9A1AC528DCBDD50094659F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4A9A1AC628DCBDD50094659F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4A9A1ACA28DCBDD90094659F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4A9A1ACB28DCBDD90094659F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4A9A1ACE28DCBDD90094659F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		4A9A1ACF28DCBDD90094659F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4A9A1AD128DCBDD90094659F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A4F59C0A69B26D1E007B1CDD /* Pods-DamerauLevenshtein.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QK9Y4P3VFS;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DamerauLevenshtein/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = poliorang.DamerauLevenshtein;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4A9A1AD228DCBDD90094659F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = D527E0185997AF6496E5BFF7 /* Pods-DamerauLevenshtein.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = QK9Y4P3VFS;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = DamerauLevenshtein/Info.plist;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = poliorang.DamerauLevenshtein;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4A9A1AB728DCBDD40094659F /* Build configuration list for PBXProject "DamerauLevenshtein" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4A9A1ACE28DCBDD90094659F /* Debug */,
+				4A9A1ACF28DCBDD90094659F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4A9A1AD028DCBDD90094659F /* Build configuration list for PBXNativeTarget "DamerauLevenshtein" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4A9A1AD128DCBDD90094659F /* Debug */,
+				4A9A1AD228DCBDD90094659F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4A9A1AB428DCBDD40094659F /* Project object */;
+}
