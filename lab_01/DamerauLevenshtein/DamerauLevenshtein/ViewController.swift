@@ -28,9 +28,11 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var button: UIButton!
     @IBAction func firstFieldAction(_ sender: Any) {
         firstWord = firstWordField.text ?? "кот"
+        firstWord = firstWord.replacingOccurrences(of: " ", with: "")
     }
     @IBAction func secondFieldAction(_ sender: Any) {
-        secondWord = secondWordField.text ?? "скат"
+        secondWord = secondWordField.text ?? "cкaт"
+        secondWord = secondWord.replacingOccurrences(of: " ", with: "")
     }
     
     @IBOutlet weak var methorPicker: UIPickerView!
@@ -93,10 +95,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
 extension ViewController : UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int { 1 }
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        4
-    }
-    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int { 4 }
 }
 
 

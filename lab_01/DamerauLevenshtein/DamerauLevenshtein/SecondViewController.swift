@@ -15,7 +15,6 @@ class SecondViewController: UIViewController, ChartViewDelegate {
     var mainViewController: ViewController?
     
     var lineChart = LineChartView()
-    
     var arr = [Int]()
 
     @IBOutlet weak var firstLabel: UILabel!
