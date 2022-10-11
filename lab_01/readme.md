@@ -18,5 +18,5 @@
 > 80% времени на лабу  
 
 ***Интерфейс***
-![alt text](интерфейс.jpg)
-![alt text](среднее.jpg)
+![alt text](report/img/интерфейс.jpg)
+![alt text](report/img/среднее.jpg)
