@@ -2,10 +2,10 @@
 :bar_chart: Labs and mct / Analysis of Algorithms / 5'sem of BMSTU
 
  **Стэк:**
- * ЯП - Swift  
- * Документация - LaTex
+* ЯП - Swift  
+* Документация - LaTex
 
-**О курсе**  
+**О курсе:**
 * 8 лабораторных  
 * ответы к каждой в латехе ~ отвобождение от 8 лабы  
 * на каждую лабу индивидуальный вариант (gitlab + readmine) 
