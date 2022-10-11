@@ -8,10 +8,13 @@
 import UIKit
 import Foundation
 
-private let methodsArray = ["resursive", "with matrix", "resursive with cash", "all"]
+public let methodsArray = ["ДЛ рекурсивно",
+                            "ДЛ матрично",
+                            "ДЛ рекурсивно с кэшем",
+                            "Л матрично",
+                            "Все методы"]
 public var firstWord = "кот"
 public var secondWord = "скат"
-public var function = ["Recursive", "Matrix", "Recursive with cash"]
 public var currentFunction = 0
 public var spinnerView : UIView?
 
@@ -29,10 +32,16 @@ class ViewController: UIViewController, UITextFieldDelegate {
     @IBAction func firstFieldAction(_ sender: Any) {
         firstWord = firstWordField.text ?? "кот"
         firstWord = firstWord.replacingOccurrences(of: " ", with: "")
+        if firstWord == "" {
+            firstWord = " "
+        }
     }
     @IBAction func secondFieldAction(_ sender: Any) {
         secondWord = secondWordField.text ?? "cкaт"
         secondWord = secondWord.replacingOccurrences(of: " ", with: "")
+        if secondWord == "" {
+            secondWord = " "
+        }
     }
     
     @IBOutlet weak var methorPicker: UIPickerView!
@@ -79,7 +88,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         spinnerView = UIView(frame: self.view.bounds)
         spinnerView?.backgroundColor = UIColor.init(red: 0.5, green: 0.5, blue: 0.5, alpha: 0.5)
         let activityIndicator = UIActivityIndicatorView()
-//        activityIndicator.style.
         activityIndicator.center = spinnerView!.center
         activityIndicator.startAnimating()
         spinnerView?.addSubview(activityIndicator)
@@ -95,7 +103,7 @@ class ViewController: UIViewController, UITextFieldDelegate {
 
 extension ViewController : UIPickerViewDataSource {
     func numberOfComponents(in pickerView: UIPickerView) -> Int { 1 }
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int { 4 }
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int { 5 }
 }
 
 

@@ -5,6 +5,7 @@
 //  Created by poliorang on 22.09.2022.
 //
 
+import CoreFoundation
 import Foundation
 
 func createMatrix(n: Int, m: Int, fill: Int) -> Array<[Int]> {
@@ -39,7 +40,8 @@ func getStrings(_ number: Int) -> String {
 }
 
 
-func benchmark(_ someFunc: (String, String) -> Int, _ firstString: String, _ secondString: String, countOfRepeate: Int) -> Double {
+func benchmark1(_ someFunc: (String, String) -> Int, _ firstString: String, _ secondString: String) {
+    let countOfRepeate = 20
     
     var sumTime = 0.0
     for _ in 0..<countOfRepeate {
@@ -50,6 +52,24 @@ func benchmark(_ someFunc: (String, String) -> Int, _ firstString: String, _ sec
         sumTime += endTime.timeIntervalSince(startTime)
     }
     
+    let middleTime = sumTime / Double(countOfRepeate)
+    print("Middle time: \(middleTime) seconds.", terminator: "\n\n")
+}
+
+
+func benchmark(_ someFunc: (String, String) -> Int, _ firstString: String, _ secondString: String, countOfRepeate: Int) -> Double {
+    
+    var sumTime = 0.0
+    for _ in 0..<countOfRepeate {
+        let startTime = CFAbsoluteTimeGetCurrent()
+        _ = someFunc(firstString, secondString)
+        let endTime = CFAbsoluteTimeGetCurrent()
+        
+        sumTime += endTime - startTime
+    }
+    
 //    print(countOfRepeate, " -> ", sumTime)
     return sumTime
 }
+
+

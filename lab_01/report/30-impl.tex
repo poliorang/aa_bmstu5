@@ -1,0 +1,206 @@
+\chapter{Технологическая часть}
+
+В данном разделе производится выбор средств реализации, а также приводятся требования к программному обеспечению (ПО), листинги реализованных алгоритмов.
+
+\section{Требования к ПО}
+
+На вход программе подаются две строки, а на выходе должно быть получено искомое расстояние, рассчитанное с помощью каждого реализованного алгоритма: для расстояния Левенштейна -- итеративный, для расстояния Дамерау-Левенштейна -- итеративный, рекурсивный без кэша, рекурсивный с кэшем. Также необходимо вывести затраченное каждым алгоритмом процессорное время.
+
+Интерфейс создаваемого приложения должен предоставлять возможность ввода двух строк и выбора алгоритма. В качестве результата наглядно должен быть представлен график работы алгоритмов: зависимость времени от количества повторений операции, а также искомое расстояние.
+
+\section{Выбор средств реализации}
+
+В качестве языка программирования для реализации данной лабораторной работы был выбран язык Swift \cite{swift}. Данный язык создан компаний Apple для разработки программного обеспечения для macOS, iOS, watchOS и tvOS. Он содержит в себе большое количество инструментов, которые позволяют быстро создавать интерфейс приложений, а также реализовывать различные алгоритмы. Программное обеспечение, созданное посредством swift, позволит наглядно продемонстрировать скорость работы алгоритмов, а также упростить тестирование.
+
+Кроме того, в Swift есть фреймворк CoreFoundation \cite{core}, который предоставляет функции для замера процессорного времени.
+
+В качестве среды разработки выбран XCode \cite{xcode}. Альтернативой ему выступает среда AppCode от JetBrains \cite{appcode}. Однако Xcode, являясь официальной средой разработки Apple, предоставляет возможность запуска симуляторов устройств Apple, что играет ключевую роль при создании масштабируемых приложений.  
+
+\section{Листинги кода}
+
+В листингах 3.1 -- 3.4 представлены реализации рассматриваемых алгоритмов.
+
+\section{Листинги кода}
+
+
+\hspace{0.6cm}В Листинге 3.1 показана реализация матричного алгоритма нахождения расстояния Левенштейна.
+\begin{lstlisting}[caption=Функция нахождения расстояния Левенштейна матрично]
+func LevenshteinMatrix(_ firstString: String, _ secondString: String) -> Int {
+    let n = firstString.count
+    let m = secondString.count  
+    var matrix = createMatrix(n: n + 1, m: m + 1, fill: 0)
+    for i in 1...n {
+        for j in 1...m {
+            let symbolN = firstString.index(firstString.startIndex, offsetBy: i - 1)
+            let symbolM = secondString.index(secondString.startIndex, offsetBy: j - 1)
+            let insertOperation = matrix[i - 1][j] + 1
+            let deleteOperation = matrix[i][j - 1] + 1
+            var changeOperation = matrix[i - 1][j - 1]
+            
+            if firstString[symbolN] != secondString[symbolM] {
+                changeOperation += 1
+            }
+            
+            matrix[i][j] = min(insertOperation, deleteOperation, changeOperation)
+        }
+    }
+    
+    return matrix[n][m]
+}
+\end{lstlisting}
+
+
+\hspace{0.6cm}В Листинге 3.2 показана реализация рекурсивного алгоритма нахождения расстояния Дамерау-Левенштейна.
+\begin{lstlisting}[caption=Функция нахождения расстояния Дамерау-Левенштейна рекурсивно]
+func DamerauLevenshteinRecursive(_ firstString: String, _ secondString: String) -> Int {
+    let n = firstString.count
+    let m = secondString.count
+    if n == 0 || m == 0 {
+        if n != 0 { return n }
+        if m != 0 { return m }
+        
+        return 0
+    }
+    
+    let symbolN = firstString.index(before: firstString.endIndex)
+    let symbolM = secondString.index(before: secondString.endIndex)
+    let a = String(firstString[..<symbolN])
+    let b = String(secondString[..<symbolM])
+    
+    var change = 0
+    if firstString[symbolN] != secondString[symbolM] {
+        change += 1
+    }
+    
+    let insertOperation = DamerauLevenshteinRecursive(a, secondString) + 1
+    let deleteOperation = DamerauLevenshteinRecursive(firstString, b) + 1
+    let changeOperation = DamerauLevenshteinRecursive(a, b) + change
+    
+    if n > 1 && m > 1 {
+        let symbolNMinusOne = firstString.index(firstString.endIndex, offsetBy: -2)
+        let symbolMMinusOne = secondString.index(secondString.endIndex, offsetBy: -2)
+        let c = String(firstString[..<symbolNMinusOne])
+        let d = String(secondString[..<symbolMMinusOne])
+      
+        if firstString[symbolN] == secondString[symbolMMinusOne] && firstString[symbolNMinusOne] == secondString[symbolM] {
+            let transposeOperation = DamerauLevenshteinRecursive(c, d) + 1
+            return min(insertOperation, deleteOperation, changeOperation, transposeOperation)
+        }
+    }
+    
+    return min(insertOperation, deleteOperation, changeOperation)
+}
+\end{lstlisting}
+
+В Листинге 3.3 показана реализация матричного алгоритма нахождения расстояния Дамерау-Левенштейна.
+\begin{lstlisting}[caption=Функция нахождения расстояния Дамерау-Левенштейна матрично]
+func DamerauLevenshteinMatrix(_ firstString: String, _ secondString: String) -> Int {
+    let n = firstString.count
+    let m = secondString.count
+    var matrix = createMatrix(n: n + 1, m: m + 1, fill: 0)
+    
+    for i in 1...n {
+        for j in 1...m {
+            let symbolN = firstString.index(firstString.startIndex, offsetBy: i - 1)
+            let symbolM = secondString.index(secondString.startIndex, offsetBy: j - 1)
+            
+            let insertOperation = matrix[i - 1][j] + 1
+            let deleteOperation = matrix[i][j - 1] + 1
+            var changeOperation = matrix[i - 1][j - 1]
+            if firstString[symbolN] != secondString[symbolM] {
+                changeOperation += 1
+            }
+         
+            if i > 1 && j > 1 {
+                let symbolNMinusOne = firstString.index(firstString.startIndex, offsetBy: i - 2)
+                let symbolMMinusOne = secondString.index(secondString.startIndex, offsetBy: j - 2)
+                if firstString[symbolN] == secondString[symbolMMinusOne] && firstString[symbolNMinusOne] == secondString[symbolM] {
+                    let transposeOperation = matrix[i - 2][j - 2] + 1
+                    matrix[i][j] = min(insertOperation, deleteOperation, changeOperation, transposeOperation)
+                } else {
+                    matrix[i][j] = min(insertOperation, deleteOperation, changeOperation)
+                }
+            }
+        }
+    }
+    return matrix[n][m]
+}
+\end{lstlisting}
+
+В Листинге 3.4 показана реализация рекурсивного алгоритма нахождения расстояния Дамерау-Левенштейна с кэшем.
+\begin{lstlisting}[caption=Функция нахождения расстояния Дамерау-Левенштейна рекурсивно с кэшем]
+func DamerauLevenshteinRecursiveWithCash(_ firstString: String, _ secondString: String) -> Int {
+    let n = firstString.count
+    let m = secondString.count
+    func recursive(firstString: String, secondString: String, n: Int, m: Int, matrix: inout [[Int]]) -> Int {
+        if matrix[n][m] != -1 { return matrix[n][m] }
+        let symbolN = firstString.index(firstString.startIndex, offsetBy: n - 1)
+        let symbolM = secondString.index(secondString.startIndex, offsetBy: m - 1)
+        var change = 0
+        if firstString[symbolN] != secondString[symbolM] { change = 1 }
+        let insertOperation = recursive(firstString, secondString, n - 1, m, &matrix) + 1
+        let deleteOperation = recursive(firstString, secondString, n, m - 1, &matrix) + 1
+        let changeOperation = recursive(firstString, secondString, n - 1, m - 1, &matrix) + change
+        if n > 1 && m > 1 {
+            let symbolNMinusOne = firstString.index(firstString.startIndex, offsetBy: n - 2)
+            let symbolMMinusOne = secondString.index(secondString.startIndex, offsetBy: m - 2)
+            matrix[n][m] = min(insertOperation, deleteOperation, changeOperation)
+            if firstString[symbolN] == secondString[symbolMMinusOne] && firstString[symbolNMinusOne] == secondString[symbolM] {
+                let transposeOperation = recursive(firstString, secondString, n - 2, m - 2, &matrix) + 1
+                matrix[n][m] = min(insertOperation, deleteOperation, changeOperation, transposeOperation)
+            }
+        } else {
+            matrix[n][m] = min(insertOperation, deleteOperation, changeOperation)
+        }
+        return matrix[n][m]
+    }
+    var matrix =  createMatrix(n: n + 1, m: m + 1, fill: -1)
+    _ = recursive(firstString, secondString, n, m, &matrix)
+    return matrix[n][m]
+}
+\end{lstlisting}
+
+\section{Тестовые данные}
+
+В таблице 3.1 приведены входные данные, на которых было протестированно разработанное ПО.
+
+\begin{table}[h]
+\renewcommand{\arraystretch}{1.8}
+\renewcommand{\tabcolsep}{0.1cm} 
+	\begin{center}
+		
+		\caption{Таблица тестовых данных}
+		""\newline
+		\begin{tabular}{|c c c c c| } 
+			\hline
+			№ & Первое слово & Второе слово & Ожидаемый результат & Полученный результат \\ [0.8ex] 
+			\hline
+			1 & а & б & 1 1 1 1 & 1 1 1 1\\
+			\hline
+			2 & кот & скат & 2 2 2 2 & 2 2 2 2\\
+			\hline
+			3 & море & моер & 2 1 1 1 & 2 1 1 1\\
+			\hline
+			4 & абаваба & аабвааб & 4 2 2 2 & 4 2 2 2\\
+			\hline
+			5 & собака & собака & 0 0 0 0 & 0 0 0 0\\
+			\hline
+			6 & qwerty & queue & 4 4 4 4 & 4 4 4 4\\
+			\hline
+			7 & apple & aplpe & 2 1 1 1  & 2 1 1 1\\
+			\hline
+			8 & 12 & one & 3 3 3 3 & 3 3 3 3\\
+			\hline
+			9 & календула & конфета & 6 6 6 6 & 6 6 6 6\\
+			\hline
+			10 & конфета & календула & 6 6 6 6 & 6 6 6 6\\
+			\hline
+		\end{tabular}
+	\end{center}
+\end{table}
+
+
+\section*{Вывод}
+
+Был производен выбор средств реализации и реализованы алгоритмы поиска расстояний: Левештнейна -- итеративный, Дамерау-Левенштейна -- итеративный, рекурсивный с кэшем и рекурсивный без кэша.
+Приведены листинги кода на выбранном языке программирования, а также представлена таблица, отображающая результаты работы программы на предложенных наборах тестовых данных.

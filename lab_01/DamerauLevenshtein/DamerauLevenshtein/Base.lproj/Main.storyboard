@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_0" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -14,17 +14,11 @@
             <objects>
                 <viewController title="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="DamerauLevenshtein" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Damerau–Levenshtein distance" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="783-eb-hGc">
-                                <rect key="frame" x="73" y="96" width="269" height="71"/>
-                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="27"/>
-                                <color key="textColor" red="0.1091232201" green="0.10926483920000001" blue="0.11793991180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="кот" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Y6E-is-7BF">
-                                <rect key="frame" x="56" y="264" width="302" height="34"/>
+                                <rect key="frame" x="56" y="264" width="278" height="34"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" red="0.1091232201" green="0.10926483920000001" blue="0.11793991180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="21"/>
@@ -34,20 +28,20 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="ipx-N4-jdE"/>
                                 </connections>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The first word:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sc7-hQ-gP1">
-                                <rect key="frame" x="56" y="224" width="153" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Первое слово" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sc7-hQ-gP1">
+                                <rect key="frame" x="56" y="224" width="162" height="30"/>
                                 <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="26"/>
                                 <color key="textColor" red="0.1091232201" green="0.10926483920000001" blue="0.11793991180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="The second word:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cyz-6f-o78">
-                                <rect key="frame" x="56" y="325" width="186" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Второе слово" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cyz-6f-o78">
+                                <rect key="frame" x="56" y="325" width="162" height="30"/>
                                 <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="26"/>
                                 <color key="textColor" red="0.1091232201" green="0.10926483920000001" blue="0.11793991180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="скат" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="1vl-Zi-Wef">
-                                <rect key="frame" x="56" y="366" width="302" height="34"/>
+                                <rect key="frame" x="56" y="366" width="278" height="34"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" red="0.1091232201" green="0.10926483920000001" blue="0.11793991180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="21"/>
@@ -65,20 +59,32 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ufy-nI-ovn">
-                                <rect key="frame" x="0.0" y="509" width="414" height="162"/>
+                                <rect key="frame" x="0.0" y="509" width="390" height="183"/>
                             </pickerView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Метод" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WQp-nU-Sbd">
+                                <rect key="frame" x="51" y="471" width="288.66666666666669" height="29.666666666666686"/>
+                                <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="26"/>
+                                <color key="textColor" red="0.1091232201" green="0.10926483920000001" blue="0.11793991180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Расстояние Дамерау-Левенштейна" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="783-eb-hGc">
+                                <rect key="frame" x="73" y="83" width="245" height="117"/>
+                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="27"/>
+                                <color key="textColor" red="0.1091232201" green="0.10926483920000001" blue="0.11793991180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BrL-IV-j61">
-                                <rect key="frame" x="142" y="726" width="130" height="50"/>
+                                <rect key="frame" x="142" y="713" width="106" height="45"/>
                                 <buttonConfiguration key="configuration" style="gray">
                                     <backgroundConfiguration key="background" cornerRadius="19">
                                         <color key="strokeColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </backgroundConfiguration>
                                     <attributedString key="attributedTitle">
-                                        <fragment content="Calculate">
+                                        <fragment content="Рассчитать">
                                             <attributes>
                                                 <color key="NSColor" name="textColor" catalog="System" colorSpace="catalog"/>
-                                                <font key="NSFont" size="24" name="GillSans-Light"/>
-                                                <font key="NSOriginalFont" size="12" name="Helvetica"/>
+                                                <font key="NSFont" size="17" name="GillSans-Light"/>
+                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                             </attributes>
                                         </fragment>
                                     </attributedString>
@@ -89,46 +95,38 @@
                                     <segue destination="bvC-RJ-pAP" kind="modal" id="v0L-Sh-7kP"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Damerau-Levenshtein method" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WQp-nU-Sbd">
-                                <rect key="frame" x="51" y="471" width="312.5" height="30"/>
-                                <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="26"/>
-                                <color key="textColor" red="0.1091232201" green="0.10926483920000001" blue="0.11793991180000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" red="0.89000000000000001" green="0.77842617057249697" blue="0.81246570568002197" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cyz-6f-o78" secondAttribute="trailing" constant="172" id="1yR-uU-Oza"/>
-                            <constraint firstItem="cyz-6f-o78" firstAttribute="top" secondItem="Sc7-hQ-gP1" secondAttribute="bottom" constant="71" id="3cn-TK-DF9"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1vl-Zi-Wef" secondAttribute="trailing" constant="56" id="5KB-Ey-Vfe"/>
-                            <constraint firstItem="Y6E-is-7BF" firstAttribute="top" secondItem="783-eb-hGc" secondAttribute="bottom" constant="97" id="8RP-7w-PLc"/>
-                            <constraint firstItem="Sc7-hQ-gP1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="56" id="9Dc-NK-083"/>
-                            <constraint firstItem="WQp-nU-Sbd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="51" id="9yN-vz-ipG"/>
-                            <constraint firstItem="ufy-nI-ovn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="A4F-W8-X2O"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Y6E-is-7BF" secondAttribute="trailing" constant="56" id="B1X-g6-cg2"/>
-                            <constraint firstItem="Sc7-hQ-gP1" firstAttribute="top" secondItem="783-eb-hGc" secondAttribute="bottom" constant="57" id="Bls-Vx-zge"/>
-                            <constraint firstItem="ufy-nI-ovn" firstAttribute="top" secondItem="1vl-Zi-Wef" secondAttribute="bottom" constant="109" id="F48-uh-8b7"/>
-                            <constraint firstItem="1vl-Zi-Wef" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="56" id="HAW-y6-Em2"/>
-                            <constraint firstItem="ufy-nI-ovn" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="IT0-D2-JeT"/>
-                            <constraint firstItem="783-eb-hGc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="52" id="P7W-oT-OXf"/>
-                            <constraint firstItem="cyz-6f-o78" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="56" id="QAR-UZ-RWj"/>
-                            <constraint firstItem="BrL-IV-j61" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="142" id="RaJ-fL-zKG"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Sc7-hQ-gP1" secondAttribute="trailing" constant="205" id="VEs-dx-Dtx"/>
-                            <constraint firstItem="1vl-Zi-Wef" firstAttribute="top" secondItem="Y6E-is-7BF" secondAttribute="bottom" constant="68" id="aF1-da-fh0"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="BrL-IV-j61" secondAttribute="trailing" constant="142" id="cHu-RH-xw0"/>
-                            <constraint firstAttribute="bottom" secondItem="ufy-nI-ovn" secondAttribute="bottom" constant="225" id="f01-Kz-QdX"/>
-                            <constraint firstItem="783-eb-hGc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="73" id="h2j-Ig-9jm"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="1vl-Zi-Wef" secondAttribute="bottom" constant="462" id="jXy-N0-lT4"/>
-                            <constraint firstItem="1vl-Zi-Wef" firstAttribute="top" secondItem="cyz-6f-o78" secondAttribute="bottom" constant="11" id="jhr-ql-cl4"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="WQp-nU-Sbd" secondAttribute="trailing" constant="50.5" id="lFR-4w-1yH"/>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="783-eb-hGc" secondAttribute="trailing" constant="72" id="lGX-FL-GSq"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="783-eb-hGc" secondAttribute="bottom" constant="695" id="oHO-RO-HxE"/>
-                            <constraint firstItem="BrL-IV-j61" firstAttribute="top" secondItem="ufy-nI-ovn" secondAttribute="bottom" constant="55" id="oIO-vT-1Xk"/>
-                            <constraint firstItem="Y6E-is-7BF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="56" id="qAr-41-qt5"/>
-                            <constraint firstItem="Y6E-is-7BF" firstAttribute="top" secondItem="Sc7-hQ-gP1" secondAttribute="bottom" constant="10" id="svN-sm-GBe"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="BrL-IV-j61" secondAttribute="bottom" constant="86" id="t7J-TW-tT1"/>
-                            <constraint firstItem="ufy-nI-ovn" firstAttribute="top" secondItem="WQp-nU-Sbd" secondAttribute="bottom" constant="8" id="xUU-Qv-xPo"/>
+                            <constraint firstItem="BrL-IV-j61" firstAttribute="top" secondItem="ufy-nI-ovn" secondAttribute="bottom" constant="21" id="1Yo-7a-ACg"/>
+                            <constraint firstItem="cyz-6f-o78" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="56" id="2FQ-QS-42W"/>
+                            <constraint firstItem="783-eb-hGc" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="73" id="3Ie-S6-Ppc"/>
+                            <constraint firstItem="Sc7-hQ-gP1" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="56" id="61c-fV-PZH"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="BrL-IV-j61" secondAttribute="trailing" constant="142" id="8Ey-by-s0b"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="BrL-IV-j61" secondAttribute="bottom" constant="52" id="8Z5-wJ-seU"/>
+                            <constraint firstItem="1vl-Zi-Wef" firstAttribute="top" secondItem="cyz-6f-o78" secondAttribute="bottom" constant="11" id="BpX-VS-pWE"/>
+                            <constraint firstItem="1vl-Zi-Wef" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="56" id="EaV-jI-sJg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="WQp-nU-Sbd" secondAttribute="trailing" constant="50.329999999999998" id="F0m-rL-b9c"/>
+                            <constraint firstItem="WQp-nU-Sbd" firstAttribute="top" secondItem="783-eb-hGc" secondAttribute="bottom" constant="271" id="K4e-0f-urj"/>
+                            <constraint firstItem="ufy-nI-ovn" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="KRs-I6-NwS"/>
+                            <constraint firstItem="Y6E-is-7BF" firstAttribute="top" secondItem="783-eb-hGc" secondAttribute="bottom" constant="64" id="OUs-9o-deh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Sc7-hQ-gP1" secondAttribute="trailing" constant="172" id="OYH-UX-rg9"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="1vl-Zi-Wef" secondAttribute="trailing" constant="56" id="QDf-HC-cKg"/>
+                            <constraint firstItem="783-eb-hGc" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="39" id="RGK-yb-Jdh"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Y6E-is-7BF" secondAttribute="trailing" constant="56" id="RXe-jm-dRL"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="WQp-nU-Sbd" secondAttribute="bottom" constant="309.32999999999998" id="TXa-n4-zRr"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="cyz-6f-o78" secondAttribute="trailing" constant="172" id="UEc-QP-H2d"/>
+                            <constraint firstItem="1vl-Zi-Wef" firstAttribute="top" secondItem="Y6E-is-7BF" secondAttribute="bottom" constant="68" id="aXS-rh-FVt"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="783-eb-hGc" secondAttribute="trailing" constant="72" id="bBX-8x-fQR"/>
+                            <constraint firstItem="Y6E-is-7BF" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="56" id="dJS-tN-S5A"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ufy-nI-ovn" secondAttribute="bottom" constant="118" id="dMF-q2-uVf"/>
+                            <constraint firstItem="Y6E-is-7BF" firstAttribute="top" secondItem="Sc7-hQ-gP1" secondAttribute="bottom" constant="10" id="knd-xl-Cbl"/>
+                            <constraint firstItem="ufy-nI-ovn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="lla-du-yXW"/>
+                            <constraint firstItem="WQp-nU-Sbd" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="51" id="rrq-dh-5qh"/>
+                            <constraint firstItem="ufy-nI-ovn" firstAttribute="top" secondItem="WQp-nU-Sbd" secondAttribute="bottom" constant="8.3300000000000001" id="rsB-tb-s72"/>
+                            <constraint firstItem="WQp-nU-Sbd" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="427" id="uzU-Uh-ocP"/>
+                            <constraint firstItem="BrL-IV-j61" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="142" id="vaM-K4-ZgY"/>
                         </constraints>
                     </view>
                     <connections>
@@ -144,30 +142,45 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="34.390243902439025" y="97.627118644067806"/>
+            <point key="canvasLocation" x="32.307692307692307" y="96.682464454976298"/>
         </scene>
         <!--Second View Controller-->
         <scene sceneID="K4w-j4-9ZI">
             <objects>
                 <viewController id="bvC-RJ-pAP" customClass="SecondViewController" customModule="DamerauLevenshtein" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="hQc-Uy-wFW">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="390" height="790"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bWZ-gr-lC2">
-                                <rect key="frame" x="67" y="68" width="258" height="32"/>
-                                <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="28"/>
-                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.75" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Levenshtein distanse is" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S8b-zk-4OF">
-                                <rect key="frame" x="52" y="702" width="311" height="32"/>
+                                <rect key="frame" x="67" y="68" width="234" height="32"/>
                                 <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="28"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sh4-wC-qDX">
-                                <rect key="frame" x="67" y="124" width="258" height="32"/>
+                                <rect key="frame" x="67" y="124" width="234" height="32"/>
+                                <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="28"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="↑ Время, с" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OG2-zt-VxZ">
+                                <rect key="frame" x="39" y="243" width="81" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="17"/>
+                                <color key="textColor" systemColor="tertiaryLabelColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Количество повторений операции →" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Xc-gz-1gh">
+                                <rect key="frame" x="39" y="218" width="315" height="27"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="GillSans" family="Gill Sans" pointSize="17"/>
+                                <color key="textColor" systemColor="tertiaryLabelColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.75" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Levenshtein distanse is" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S8b-zk-4OF">
+                                <rect key="frame" x="51" y="651" width="288" height="73"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="GillSans-Light" family="Gill Sans" pointSize="28"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -176,13 +189,10 @@
                         <viewLayoutGuide key="safeArea" id="hGX-tW-71b"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="hGX-tW-71b" firstAttribute="trailing" secondItem="S8b-zk-4OF" secondAttribute="trailing" constant="51" id="1ld-BT-2Hi"/>
-                            <constraint firstItem="S8b-zk-4OF" firstAttribute="leading" secondItem="hGX-tW-71b" secondAttribute="leading" constant="52" id="22z-CN-Xil"/>
                             <constraint firstItem="Sh4-wC-qDX" firstAttribute="top" secondItem="bWZ-gr-lC2" secondAttribute="bottom" constant="24" id="Cfb-Oc-Kbd"/>
                             <constraint firstItem="Sh4-wC-qDX" firstAttribute="leading" secondItem="hGX-tW-71b" secondAttribute="leading" constant="67" id="DtW-zs-NpT"/>
                             <constraint firstItem="bWZ-gr-lC2" firstAttribute="top" secondItem="hGX-tW-71b" secondAttribute="top" constant="68" id="FLS-q6-sCA"/>
                             <constraint firstItem="hGX-tW-71b" firstAttribute="trailing" secondItem="Sh4-wC-qDX" secondAttribute="trailing" constant="89" id="Ma2-dc-0js"/>
-                            <constraint firstItem="hGX-tW-71b" firstAttribute="bottom" secondItem="S8b-zk-4OF" secondAttribute="bottom" constant="74" id="MeC-RH-6vV"/>
                             <constraint firstItem="Sh4-wC-qDX" firstAttribute="top" secondItem="bWZ-gr-lC2" secondAttribute="bottom" constant="24" id="QGt-Sy-lD5"/>
                             <constraint firstItem="hGX-tW-71b" firstAttribute="trailing" secondItem="bWZ-gr-lC2" secondAttribute="trailing" constant="89" id="RPM-2e-S9B"/>
                             <constraint firstItem="bWZ-gr-lC2" firstAttribute="leading" secondItem="hGX-tW-71b" secondAttribute="leading" constant="67" id="Tvm-xT-aet"/>
@@ -196,12 +206,15 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZB8-XE-Hsi" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="985.50724637681162" y="97.767857142857139"/>
+            <point key="canvasLocation" x="981.15942028985512" y="95.758928571428569"/>
         </scene>
     </scenes>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="tertiaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

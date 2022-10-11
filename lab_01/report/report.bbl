@@ -1,0 +1,44 @@
+\begin{thebibliography}{10}
+\def\selectlanguageifdefined#1{
+\expandafter\ifx\csname date#1\endcsname\relax
+\else\language\csname l@#1\endcsname\fi}
+\ifx\undefined\url\def\url#1{{\small #1}}\else\fi
+\ifx\undefined\BibUrl\def\BibUrl#1{\url{#1}}\else\fi
+\ifx\undefined\BibAnnote\long\def\BibAnnote#1{(#1)}\else\fi
+\ifx\undefined\BibEmph\def\BibEmph#1{\emph{#1}}\else\fi
+
+\bibitem{Levenshtein}
+\selectlanguageifdefined{russian}
+Левенштейн~В.~И. Двоичные коды с
+  исправлением выпадений, вставок и
+  замещений символов.
+\newblock Доклады АН СССР, 1965.
+\newblock Т.~163.
+\newblock {С.}~845--848.
+
+\bibitem{swift}
+\selectlanguageifdefined{russian}
+Swift: Swift | Мультипарадигмальный компилируемый язык [Электронный ресурс].
+\newblock Режим доступа: \url{https://www.apple.com/swift/}
+
+\bibitem{core}
+\selectlanguageifdefined{russian}
+Core Foundation: Сore Foundation | Time Utilities [Электронный ресурс].
+\newblock Режим доступа: \url{https://developer.apple.com/documentation/corefoundation/time_utilities}
+
+\bibitem{xcode}
+\selectlanguageifdefined{russian}
+Xcode: Xcode [Электронный ресурс].
+\newblock Режим доступа: \url{https://developer.apple.com/xcode/}
+
+\bibitem{appcode}
+\selectlanguageifdefined{russian}
+AppCode: AppCode | Smart Swift/Objective-C IDE for iOS [Электронный ресурс].
+\newblock Режим доступа: \url{https://www.jetbrains.com/objc/}
+
+\bibitem{ipad}
+\selectlanguageifdefined{russian}
+iPad: iPad | Apple A14 Bionic [Электронный ресурс].
+\newblock Режим доступа: \url{https://developer.apple.com/xcode/}
+
+\end{thebibliography}
