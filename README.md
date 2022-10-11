@@ -1,7 +1,8 @@
 # AA_BMSTU_5_semester
 :bar_chart: Labs and mct / Analysis of Algorithms / 5'sem of BMSTU
 
- **Стэк:** * ЯП - `Swift`  
+ **Стэк:**
+ * ЯП - `Swift`  
 * Документация - `LaTex`
   
 **О курсе:** * 8 лабораторных  
