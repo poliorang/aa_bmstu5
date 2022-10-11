@@ -49,7 +49,6 @@ class ViewController: UIViewController, UITextFieldDelegate {
         removeSpinner()
     }
     
-        
     override func viewDidLoad() {
         super.viewDidLoad()
         

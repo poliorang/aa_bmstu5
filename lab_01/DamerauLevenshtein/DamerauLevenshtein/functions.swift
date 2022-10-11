@@ -68,8 +68,5 @@ func benchmark(_ someFunc: (String, String) -> Int, _ firstString: String, _ sec
         sumTime += endTime - startTime
     }
     
-//    print(countOfRepeate, " -> ", sumTime)
     return sumTime
 }
-
-

@@ -134,4 +134,3 @@ class SecondViewController: UIViewController, ChartViewDelegate {
         return arr
     }
 }
-

@@ -28,8 +28,6 @@ func LevenshteinMatrix(_ firstString: String, _ secondString: String) -> Int {
         }
     }
     
-//    print("Матрица - расстояние Левенштейна итеративно:\n")
-//    printMatrix(n: n, m: m, matrix: matrix)
     return matrix[n][m]
 }
 
@@ -64,7 +62,6 @@ func DamerauLevenshteinRecursive(_ firstString: String, _ secondString: String) 
         let symbolMMinusOne = secondString.index(secondString.endIndex, offsetBy: -2)
         let c = String(firstString[..<symbolNMinusOne])
         let d = String(secondString[..<symbolMMinusOne])
-        
         
         if firstString[symbolN] == secondString[symbolMMinusOne] && firstString[symbolNMinusOne] == secondString[symbolM] {
             let transposeOperation = DamerauLevenshteinRecursive(c, d) + 1
@@ -109,8 +106,6 @@ func DamerauLevenshteinMatrix(_ firstString: String, _ secondString: String) -> 
         }
     }
     
-//    print("Матрица - расстояние Дамерау-Левенштейна итеративно:\n")
-//    printMatrix(n: n + 1, m: m + 1, matrix: matrix)
     return matrix[n][m]
 }
 
@@ -124,7 +119,6 @@ func DamerauLevenshteinRecursiveWithCash(_ firstString: String, _ secondString: 
         let symbolN = firstString.index(firstString.startIndex, offsetBy: n - 1)
         let symbolM = secondString.index(secondString.startIndex, offsetBy: m - 1)
 
-
         var change = 0
         if firstString[symbolN] != secondString[symbolM] {
             change = 1
@@ -133,7 +127,6 @@ func DamerauLevenshteinRecursiveWithCash(_ firstString: String, _ secondString: 
         let insertOperation = recursive(firstString: firstString, secondString: secondString, n: n - 1, m: m, matrix: &matrix) + 1
         let deleteOperation = recursive(firstString: firstString, secondString: secondString, n: n, m: m - 1, matrix: &matrix) + 1
         let changeOperation = recursive(firstString: firstString, secondString: secondString, n: n - 1, m: m - 1, matrix: &matrix) + change
-
 
         if n > 1 && m > 1 {
             let symbolNMinusOne = firstString.index(firstString.startIndex, offsetBy: n - 2)
@@ -155,7 +148,5 @@ func DamerauLevenshteinRecursiveWithCash(_ firstString: String, _ secondString: 
     var matrix =  createMatrix(n: n + 1, m: m + 1, fill: -1)
     _ = recursive(firstString: firstString, secondString: secondString, n: n, m: m, matrix: &matrix)
 
-//    print("Матрица - расстояние Дамерау-Левенштейна рекурсивно с кэшем:\n")
-//    printMatrix(n: n + 1, m: m + 1, matrix: matrix)
     return matrix[n][m]
 }
