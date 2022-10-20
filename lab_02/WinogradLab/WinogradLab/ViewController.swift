@@ -20,7 +20,8 @@ public var mFirst = 0
 public var nSecond = 0
 public var mSecond = 0
 public var spinnerView : UIView?
-var placeholderLabel = UILabel()
+
+let countOfSizes = 2
 
 class ViewController: UIViewController {
     private let alertManager = AlertManager.shared
@@ -34,9 +35,53 @@ class ViewController: UIViewController {
     @IBOutlet weak var calculateButton: UIButton!
     @IBOutlet weak var methodPicker: UIPickerView!
     
+    @IBOutlet weak var generateLabel: UIButton!
+    @IBOutlet weak var firstSizeField: UITextField!
+    @IBOutlet weak var secondSizeField: UITextField!
+    
+    @IBOutlet weak var kostylOne: UIView!
+    @IBOutlet weak var kostylTwo: UIView!
+    @IBAction func generateAction(_ sender: Any) {
+        let firstNilSizes = firstSizeField.text?.components(separatedBy: " ").map({Int($0) ?? nil}) ?? [Optional(20), Optional(20)]
+        let secondNilSizes = secondSizeField.text?.components(separatedBy: " ").map({Int($0) ?? nil}) ?? [Optional(20), Optional(20)]
+        
+        
+        
+        if firstNilSizes.count != countOfSizes || firstNilSizes.contains(nil) ||
+            secondNilSizes.count != countOfSizes || secondNilSizes.contains(nil) {
+            alertManager.showAlert(presentTo: self, title: "Ошибка", message: "Некорректные размеры матрицы")
+        } else {
+            let firstSizes = firstNilSizes.map({$0!})
+            let secondSizes = secondNilSizes.map({$0!})
+            
+            nFirst = firstSizes[0]
+            mFirst = firstSizes[1]
+            
+            nSecond = secondSizes[0]
+            mSecond = secondSizes[1]
+            
+            firstMatrix = generateMatrix(nFirst, mFirst)
+            secondMatrix = generateMatrix(nSecond, mSecond)
+            
+            if nFirst < 8 && mFirst < 6 && nSecond < 8 && mSecond < 6 {
+                firstMatrixField.text = matrixToString(n: nFirst, m: mFirst, matrix: firstMatrix)
+                secondMatrixField.text = matrixToString(n: nSecond, m: mSecond, matrix: secondMatrix)
+            } else {
+                firstMatrixField.text = ""
+                secondMatrixField.text = ""
+            }
+            
+            print(nFirst, mFirst, nSecond, mSecond)
+            
+            alertManager.showAlert(presentTo: self, title: "Успешно", message: "Матрицы сгенерированы")
+        }
+    }
+    
     @IBAction func calculateAction(_ sender: Any) {
-        if getMatrixs() == false {
-            alertManager.showAlert(presentTo: self, title: "Ошибка", message: "Некорректный элемент матрицы")
+        if firstMatrixField.text != "" && secondMatrixField.text != "" {
+            if getMatrixs() == false {
+                alertManager.showAlert(presentTo: self, title: "Ошибка", message: "Некорректный элемент матрицы")
+            }
         }
         
         if checkSizes(nFirst, mFirst, nSecond, mSecond) == false {
@@ -54,6 +99,7 @@ class ViewController: UIViewController {
         calculateButton.addTarget(self, action: #selector(showSpinner), for: UIControl.Event.touchDown)
         
         setupDismissKeyboard()
+        setupPlaceholders()
     }
     
     @objc func dismissKeyboard() {
@@ -100,6 +146,18 @@ class ViewController: UIViewController {
         }
         
         return true
+    }
+    
+    func setupPlaceholders() {
+        firstSizeField.attributedPlaceholder = NSAttributedString(
+            string: "20 20",
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray]
+        )
+        
+        secondSizeField.attributedPlaceholder = NSAttributedString(
+            string: "20 20",
+            attributes: [NSAttributedString.Key.foregroundColor: UIColor.lightGray]
+        )
     }
 }
 

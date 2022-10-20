@@ -33,7 +33,13 @@ class SecondViewController: UIViewController, ChartViewDelegate {
     func setupLineCharts() {
         if view.frame.size.width > 420 {
             lineChart.frame = CGRect(x: 0, y: 200, width: view.frame.size.width - 120, height: view.frame.size.width - 200)
-        } else {
+        }
+        
+        if view.frame.size.width > 900 {
+            lineChart.frame = CGRect(x: 0, y: 200, width: view.frame.size.width - 323, height: view.frame.size.width - 400)
+        }
+        
+        if view.frame.size.width < 420 {
             lineChart.frame = CGRect(x: 0, y: 200, width: view.frame.size.width, height: view.frame.size.width)
         }
     }

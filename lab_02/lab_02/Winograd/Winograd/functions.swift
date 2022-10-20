@@ -12,14 +12,12 @@ func generateMatrix(_ n: Int, _ m: Int) -> [[Int]] {
     
     for i in 0..<n {
         for j in 0..<m {
-            matrix[i][j] = Int.random(in: -100...100)
+            matrix[i][j] = Int.random(in: -1000...1000)
         }
     }
     
     return matrix
 }
-
-
 
 func createMatrix(n: Int, m: Int, fill: Int) -> Array<[Int]> {
     let matrix = [[Int]](repeating: [Int](repeating: fill, count: m), count: n)
@@ -56,9 +54,7 @@ func matrixToString(n: Int, m : Int, matrix: [[Int]]) -> String {
     for i in 0..<n {
         for j in 0..<m {
             let symbol = String(matrix[i][j])
-            var sigh = 0
-            if matrix[i][j] < 0 { sigh = 1 }
-            str += String(repeating: " ", count: 1 + countOfSymbols - symbol.count + sigh) + symbol
+            str +=  String(repeating: " ", count: 1 + countOfSymbols - symbol.count) + symbol
         }
         str += "\n"
     }
@@ -128,42 +124,24 @@ func checkSizes(_ nA: Int, _ mA: Int, _ nB: Int, _ mB: Int) -> Bool {
 }
 
 
-func benchmark(_ someFunc: ([[Int]], [[Int]]) -> [[Int]], _ matrixA: [[Int]], _ matrixB: [[Int]], countOfRepeate: Int) -> Double {
+func benchmark(_ someFunc: ([[Int]], [[Int]]) -> [[Int]], _ matrixA: [[Int]], _ matrixB: [[Int]]) -> Double {
+    var sum = 0.0
     
-    var sumTime = 0.0
-    for _ in 0..<countOfRepeate {
+    for i in 0...50 {
         let startTime = CFAbsoluteTimeGetCurrent()
         _ = someFunc(matrixA, matrixB)
         let endTime = CFAbsoluteTimeGetCurrent()
         
-        sumTime += endTime - startTime
+        sum += endTime - startTime
     }
     
-    return sumTime
+    return sum / 50
 }
 
-
-func initializeMatrix() {
-    firstMatrix = []
-    secondMatrix = []
-    nFirst = 0
-    mFirst = 0
-    nSecond = 0
-    mSecond = 0
-}
-
-func goBenchmark(_ someFunc: ([[Int]], [[Int]]) -> [[Int]]) -> Array<Double> {
-    var times = [Double]()
-    for i in arr {
-        let res = benchmark(someFunc, firstMatrix, secondMatrix, countOfRepeate: i)
-        times.append(res)
-    }
-    return times
-}
 
 func getArrayOfRepeate() -> Array<Int> {
     var arr = [Int]()
-    for x in stride(from: 1, to: 100, by: 10) { arr.append(x) }
+    for x in stride(from: 1, to: 10000, by: 500) { arr.append(x) }
     
     return arr
 }

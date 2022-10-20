@@ -22,7 +22,13 @@ class ThirdViewController: UIViewController {
     
     func setupLabel() {
         print(matrixToString(n: nFirst, m: mSecond, matrix: resultMatrix))
-        mainLabel.numberOfLines = nFirst + 1
-        mainLabel.text = matrixToString(n: nFirst, m: mSecond, matrix: resultMatrix)
+        
+        if nFirst < 20 && mSecond < 20 {
+            mainLabel.numberOfLines = nFirst + 1
+            mainLabel.text = matrixToString(n: nFirst, m: mSecond, matrix: resultMatrix)
+        } else {
+            mainLabel.numberOfLines = 3
+            mainLabel.text = "Матрица содержит слишком много элементов для корректного отображения"
+        }
     }
 }
