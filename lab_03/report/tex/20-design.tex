@@ -1,0 +1,104 @@
+\chapter{Конструкторская часть}
+
+\section{Схемы алгоритмов}
+
+На рисунках 2.1 -- 2.4 представлены схемы алгоритмов 
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[width=0.8\linewidth]{img/Bucket.png}
+	\caption{Схема алгоритма блочной сортировки}
+	\label{fig:mpr}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.8]{img/Insertion.png}
+	\caption{Схема алгоритма сортировки перемешиванием}
+	\label{fig:mpr}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.65]{img/Shaker.png}
+	\caption{Схема алгоритма сортировки перемешиванием}
+	\label{fig:mpr}
+\end{figure}
+
+\begin{figure}[h!]
+	\centering
+	\includegraphics[scale=0.65]{img/BinaryTree.png}
+	\caption{Схема алгоритма сортировки бинарным деревом}
+	\label{fig:mpr}
+\end{figure}
+
+\section{Модель вычислений}
+
+Для последующего вычисления трудоемкости введём модель вычислений:
+
+\begin{enumerate}
+	\item Операции из списка (\ref{for:opers}) имеют трудоемкость 1.
+	\begin{equation}
+	\label{for:opers}
+	+, -, /, \%, ==, !=, <, >, <=, >=, [], ++, {-}-
+	\end{equation}
+	\item Трудоемкость оператора выбора if условие then A else B рассчитывается, как (\ref{for:if}).
+	\begin{equation}
+	\label{for:if}
+	f_{if} = f_{\text{условия}} +
+	\begin{cases}
+	f_A, & \text{если условие выполняется,}\\
+	f_B, & \text{иначе.}
+	\end{cases}
+	\end{equation}
+	\item Трудоемкость цикла рассчитывается, как (\ref{for:for}).
+	\begin{equation}
+	\label{for:for}
+	f_{for} = f_{\text{инициализации}} + f_{\text{сравнения}} + N(f_{\text{тела}} + f_{\text{инкремента}} + f_{\text{сравнения}})
+	\end{equation}
+	\item Трудоемкость вызова функции равна 0.
+\end{enumerate}
+
+\section{Трудоёмкость алгоритмов}
+
+\subsection{Алгоритм блочной сортировки}
+
+\subsection{Алгоритм сортировки перемешиванием}
+
+\begin{itemize}
+	\item Трудоёмкость сравнения внешнего цикла $while$, которая равна (\ref{for:bubble_outer}):
+	\begin{equation}
+		\label{for:bubble_outer}
+		f_{outer} = 1 + 2 \cdot (N - 1)
+	\end{equation}
+	\item Суммарная трудоёмкость внутренних циклов, количество итераций которых меняется в промежутке $[1..N-1]$, которая равна (\ref{for:bubble_inner}):
+	\begin{equation}
+		\label{for:bubble_inner}
+		f_{inner} = 5(N - 1) + \frac{2 \cdot (N - 1)}{2} \cdot (3 + f_{if})
+	\end{equation}
+	\item Трудоёмкость условия во внутреннем цикле, которая равна (\ref{for:bubble_if}):
+	\begin{equation}
+		\label{for:bubble_if}
+		f_{if} = 4 + \begin{cases}
+			0, & \text{л.с.}\\
+			9, & \text{х.с.}\\
+		\end{cases}
+	\end{equation}
+\end{itemize}
+
+Трудоёмкость в лучшем случае (\ref{for:bubble_best}):
+\begin{equation}
+	\label{for:bubble_best}
+	f_{best} = -3 + \frac{3}{2} N + \approx \frac{3}{2} N = O(N)
+\end{equation}
+
+Трудоёмкость в худшем случае (\ref{for:bubble_worst}):
+\begin{equation}
+	\label{for:bubble_worst}
+	f_{worst} = -3 - 8N + 8N^2 \approx 8N^2 = O(N^2)
+\end{equation}
+
+\subsection{Алгоритм сортировки бинарным деревом}
+
+\section{Вывод}
+На основе теоретических данных, полученных из аналитического раздела, были построены схемы всех алгоритмов сортировки массивов, а также описана модель вычислений и, исходя из нее, оценена трудоемкость для каждого алгоритма. 
