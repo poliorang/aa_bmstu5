@@ -1,0 +1,134 @@
+\chapter{Технологическая часть}
+
+В данном разделе производится выбор средств реализации, а также приводятся требования к программному обеспечению (ПО), листинги реализованных алгоритмов.
+
+\section{Требования к ПО}
+
+На вход программе подается массив сравниваемых элементов, на выходе должен быть получен отсортированный массив. Результирующий массив вычислен с помощью каждого из реализованных алгоритмов сортировки: блочной, перемешиванием, бинарным деревом. Также необходимо вывести затраченное каждым алгоритмом процессорное время и занимамую память.
+
+\section{Выбор средств реализации}
+
+В качестве языка программирования для реализации данной лабораторной работы был выбран язык Swift \cite{swift}. Данный язык создан компаний Apple для разработки программного обеспечения для macOS, iOS, watchOS и tvOS. Выбор обоснован желанием расширить знания в области применения данного языка, а также возможностью создать на основе написанного кода приложение.
+
+Кроме того, в Swift есть фреймворк CoreFoundation \cite{core}, который предоставляет функции для замера процессорного времени. В качестве среды разработки выбран XCode \cite{xcode}.
+
+
+\section{Листинги кода}
+
+В листингах 3.1 -- 3.3 представлены реализации рассматриваемых алгоритмов.
+
+\hspace{0.6cm}В Листинге 3.1 показана реализация алгоритма сортировки бинарным деревом.
+\begin{lstlisting}[caption=Функция алгоритма сортировки бинарным деревом]
+enum BinaryTree<T: Comparable> {
+    case empty
+    indirect case node(BinaryTree, T, BinaryTree)
+    
+    func newTreeWithInsertedValue(newValue: T) -> BinaryTree {
+        switch self {
+        case .empty:
+            return .node(.empty, newValue, .empty)
+        case let .node(left, value, right):
+            if newValue < value {
+                return .node(left.newTreeWithInsertedValue(newValue: newValue), value, right)
+            } else { return .node(left, value, right.newTreeWithInsertedValue(newValue: newValue)) }
+        }
+    }
+    
+    mutating func insert(newValue: T) {
+        self = newTreeWithInsertedValue(newValue: newValue)
+    }
+    
+    func traverseInOrder(process: (T) -> ()) {
+        switch self {
+        case .empty:
+            return
+        case let .node(left, value, right):
+            left.traverseInOrder(process: process)
+            process(value)
+            right.traverseInOrder(process: process)
+        }
+    }
+}
+
+func binarySearchTreeSort<T: Comparable>(_ array: [T]) -> [T] {
+    var resultArray: [T] = []
+    var tree: BinaryTree<T> = .empty
+    for elem in array { tree.insert(newValue: elem) }
+    tree.traverseInOrder(process: { resultArray.append($0) })
+    
+    return resultArray
+}
+\end{lstlisting}
+
+\hspace{0.6cm}В Листинге 3.2 показана реализация реализация алгоритма сортировки перемешиванием.
+\begin{lstlisting}[caption=Функция алгоритма сортировки перемешиванием]
+func shakerSort<T: Comparable>(_ array: [T]) -> [T] {
+    var resultArray = array
+    var left = 0
+    var right = resultArray.count - 1
+    while left <= right {
+        for i in left..<right { if resultArray[i] > resultArray[i + 1] { 
+        		resultArray.swapAt(i, i + 1) } }
+        right -= 1
+        for i in stride(from: right, to: left, by: -1) { if resultArray[i - 1] > resultArray[i] { 
+        		resultArray.swapAt(i, i - 1) } }
+        left += 1
+    }
+    return resultArray
+}
+\end{lstlisting}
+
+\hspace{0.6cm}В Листинге 3.3 показана реализация оптимизированного алгоритма блочной сортировки.
+\begin{lstlisting}[caption=Функция алгоритма блочной сортировки]
+func bucketSort(_ array: [Double]) -> [Double]  {
+    var resultArray: [Double] = []
+    let maxValue = array.max()!
+    let minValue = array.min()!
+    let lenArray = array.count
+    let offset = array.filter { $0 < 0 }.count
+    var sizeValue = maxValue / Double(lenArray) as Double
+    if minValue < 0 { sizeValue = maxValue + (-minValue) / Double(lenArray) as Double }
+    var buckets: [[Double]] = []
+    for _ in 0..<lenArray { buckets.append([]) }
+    for i in 0..<lenArray {
+        let j = Int(array[i] / sizeValue)
+        if j != lenArray {
+            buckets[j + offset].append(array[i])
+        } else { buckets[lenArray - 1].append(array[i]) }
+    }
+    for i in 0..<lenArray {
+        insertionSort(bucket: &buckets[i])
+        resultArray.append(contentsOf: buckets[i])
+    }
+    return resultArray
+}
+\end{lstlisting}
+
+\section{Функциональные тесты}
+
+В таблице~\ref{tbl:test} приведены тесты для функций, реализующих алгоритмы сортировки. Все тесты пройдены успешно.
+
+\begin{table}[h!]
+	\begin{center}
+		\begin{tabular}{|c|c|c|}
+			\hline
+			Входной массив & Результат & Ожидаемый результат \\ 
+			\hline
+			$[15, 25, 35, 45]$ & $[15, 25, 35, 45]$  & $[15, 25, 35, 45]$\\\hline
+			$[55, 45, 35, 25]$  & $[25, 35, 45, 55]$ & $[25, 35, 45, 55]$\\\hline
+			$[-10, -20, -30, -25]$  & $[-30, -25, -20, -10]$  & $[-30, -25, -20, -10]$\\\hline
+			$[40, -10, -30, 75]$  & $[-30, -10, 40, 75]$  & $[-30, -10, 40, 75]$\\\hline
+			$[100]$  & $[100]$  & $[100]$\\\hline
+			$[-20]$  & $[-20]$  & $[-20]$\\\hline
+			$[1.1, 2.2, 3.3, 4.4]$  & $[1.1, 2.2, 3.3, 4.4]$  & $[1.1, 2.2, 3.3, 4.4]$\\\hline
+			$[1.1, -2.2, 3.3, -4.4]$  & $[-4.4, -2.2, 1.1, 3.3]$  &  $[-4.4, -2.2, 1.1, 3.3]$\\\hline
+			$[-1.1, -2.2, -3.3, -4.4]$  & $[-4.4, 3.3, -2.2, -1.1]$  &  $[-4.4, -3.3, -2.2, -1.1]$\\\hline
+			$[10, 10]$  & $[10, 10]$  & $[10, 10]$ \\\hline
+		\end{tabular}
+		\caption{\label{tbl:test}Тестирование функций}
+	\end{center}
+\end{table}
+
+\section{Вывод}
+
+В данном разделе были разработаны исходные коды трёх алгоритмов сортировки: блочной, перемешиванием и бинарным деревом. Работа реализаций протестирована на различных наборах данных.

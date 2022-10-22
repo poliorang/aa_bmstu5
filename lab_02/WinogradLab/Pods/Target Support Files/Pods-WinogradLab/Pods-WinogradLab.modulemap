@@ -1,0 +1,6 @@
+framework module Pods_WinogradLab {
+  umbrella header "Pods-WinogradLab-umbrella.h"
+
+  export *
+  module * { export * }
+}

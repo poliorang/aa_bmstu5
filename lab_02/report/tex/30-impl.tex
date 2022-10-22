@@ -1,0 +1,267 @@
+\chapter{Технологическая часть}
+
+В данном разделе производится выбор средств реализации, а также приводятся требования к программному обеспечению (ПО), листинги реализованных алгоритмов.
+
+\section{Требования к ПО}
+
+На вход программе подаются две матрицы, на выходе должна быть получена результирующая матрица -- произведение двух первых, вычисленная с помощью каждого реализованного алгоритма: стандартного, Винограда, Винограда с оптимизацией. Также необходимо вывести затраченное каждым алгоритмом процессорное время.
+
+Интерфейс создаваемого приложения должен предоставлять возможность ввода двух матриц, задания размерностей и генерации по ним двух матриц и выбора алгоритма умножения. В качестве результата должна быть выведена результирующая матрица и наглядно представлен график работы алгоритмов: зависимость времени от количества повторений операции.
+
+\section{Выбор средств реализации}
+
+В качестве языка программирования для реализации данной лабораторной работы был выбран язык Swift \cite{swift}. Данный язык создан компанией Apple для разработки программного обеспечения для macOS, iOS, watchOS и tvOS и выступил альтернативой языку Оbjective-С. Он содержит в себе большое количество инструментов, которые позволяют быстро создавать интерфейс приложений, а также реализовывать различные алгоритмы. Программное обеспечение, созданное посредством swift, позволит наглядно продемонстрировать скорость работы алгоритмов, а также упростить тестирование.
+
+Кроме того, в Swift есть фреймворк CoreFoundation \cite{core}, который предоставляет функции для замера процессорного времени.
+
+В качестве среды разработки выбран XCode \cite{xcode}. Альтернативой ему выступает среда AppCode от JetBrains \cite{appcode}. Однако Xcode, являясь официальной средой разработки Apple, предоставляет возможность запуска симуляторов устройств Apple, что играет ключевую роль при создании масштабируемых приложений.  
+
+\section{Листинги кода}
+
+В листингах 3.1 -- 3.3 представлены реализации рассматриваемых алгоритмов.
+
+\hspace{0.6cm}В Листинге 3.1 приведена реализация стандартного алгоритма умножения матриц.
+\begin{lstlisting}[caption=Функция стандартного умножения матриц]
+func standardMultiplication(_ matrixA: [[Int]], _ matrixB: [[Int]]) -> [[Int]] {
+
+    let n = matrixA.count
+    let m = matrixA[0].count
+    let q = matrixB[0].count
+    
+    resultMatrix = createMatrix(n: n, m: q, fill: 0)
+    
+    for i in 0..<n {
+        for j in 0..<q {
+            for k in 0..<m {
+                resultMatrix[i][j] =  \
+                resultMatrix[i][j] \
+                + matrixA[i][k] * matrixB[k][j]
+            }
+        }
+    }
+    
+    
+    return resultMatrix
+}
+\end{lstlisting}
+
+\newpage
+\hspace{0.6cm}В Листинге 3.2 приведена реализация реализация алгоритма Винограда умножения матриц.
+\begin{lstlisting}[caption=Функция алгоритма Винограда умножения матриц]
+func Winograd(_ matrixA: [[Int]], _ matrixB: [[Int]]) -> [[Int]] {
+    let n = matrixA.count
+    let m = matrixA[0].count
+    let q = matrixB[0].count
+    
+    resultMatrix = [[Int]](repeating: [Int](repeating: 0, count: q), count: n)
+    var row = [Int](repeating: 0, count: n)
+    for i in 0..<n {
+        for j in 0..<(m / 2) {
+            row[i] = row[i] + matrixA[i][2 * j] * matrixA[i][2 * j + 1]
+        }
+    }
+    
+    var column = [Int](repeating: 0, count: q)
+    for i in 0..<q {
+        for j in 0..<(m / 2) {
+            column[i] = column[i] + matrixB[2 * j][i] * matrixB[2 * j + 1][i]
+        }
+    }
+    for i in 0..<n {
+        for j in 0..<q {
+            resultMatrix[i][j] = -row[i] - column[j]
+            for k in 0..<(m / 2) {
+                resultMatrix[i][j] = resultMatrix[i][j] + (matrixA[i][2 * k + 1] + matrixB[2 * k][j]) * (matrixA[i][2 * k] + matrixB[2 * k + 1][j])
+            }
+        }
+    }
+    
+    if m % 2 == 1 {
+        for i in 0..<n {
+            for j in 0..<q {
+                resultMatrix[i][j] = resultMatrix[i][j] + matrixA[i][m - 1] * matrixB[m - 1][j]
+            }
+        }
+    }
+    
+    return resultMatrix
+}
+\end{lstlisting}
+
+В Листинге 3.3 приведена реализация оптимизированного алгоритма Винограда умножения матриц.
+\begin{lstlisting}[caption=Функция оптимизированного алгоритма Винограда умножения матриц]
+func WinogradOptimal(_ matrixA: [[Int]], _ matrixB: [[Int]]) -> [[Int]] {
+    let n = matrixA.count
+    let m = matrixA[0].count
+    let mCycle = matrixA[0].count >> 1
+    let q = matrixB[0].count
+    
+    resultMatrix = [[Int]](repeating: [Int](repeating: 0, count: q), count: n)
+    var row = [Int](repeating: 0, count: n)
+    
+    for i in 0..<n {
+        for j in 0..<mCycle {
+            row[i] += matrixA[i][2 * j] * matrixA[i][2 * j + 1]
+        }
+    }
+    
+    var column = [Int](repeating: 0, count: q)
+    for i in 0..<q {
+        for j in 0..<mCycle {
+            column[i] += matrixB[2 * j][i] * matrixB[2 * j + 1][i]
+        }
+    }
+    for i in 0..<n {
+        for j in 0..<q {
+            resultMatrix[i][j] -= (row[i] + column[j])
+            for k in 0..<mCycle {
+                resultMatrix[i][j] += (matrixA[i][2 * k + 1] + matrixB[2 * k][j]) * (matrixA[i][2 * k] + matrixB[2 * k + 1][j])
+            }
+        }
+    }
+    if m % 2 == 1 {
+        for i in 0..<n {
+            for j in 0..<q {
+                resultMatrix[i][j] += matrixA[i][m - 1] * matrixB[m - 1][j]
+            }
+        }
+    }
+    return resultMatrix
+}
+\end{lstlisting}
+
+
+\section{Функциональные тесты}
+
+В таблице \ref{tab:tests} приведены тесты для функций, реализующих алгоритмы умножения матриц, рассматриваемых в данной лабораторной работе. Тесты для всех алгоритмов пройдены успешно.
+
+\begin{table}[h]
+	\begin{center}
+		\caption{\label{tab:tests} Функциональные тесты}
+		\begin{tabular}{|c|c|c|c|c|}
+		\hline
+		Матрица 1 & Матрица 2 & Ожидаемый результат \\ 
+		\hline
+
+		$\begin{pmatrix}
+			&
+		\end{pmatrix}$ &
+		$\begin{pmatrix}
+			&
+		\end{pmatrix}$ &
+		Сообщение об ошибке \\ \hline
+			
+		$\begin{pmatrix}
+			1 & 5 & 7\\
+			2 & 6 & 8\\
+			3 & 7 & 9
+		\end{pmatrix}$ &
+		$\begin{pmatrix}
+			&
+		\end{pmatrix}$ &
+		Сообщение об ошибке \\ \hline
+
+		$\begin{pmatrix}
+			1 & 2 & 3
+		\end{pmatrix}$ &
+		$\begin{pmatrix}
+			1 & 2 & 3
+		\end{pmatrix}$ &
+		Сообщение об ошибке \\ \hline
+
+		$\begin{pmatrix}
+			1 \\
+			1 \\
+			1
+		\end{pmatrix}$ &
+		$\begin{pmatrix}
+			1 \\
+			1 \\
+			1
+		\end{pmatrix}$ &
+		Сообщение об ошибке \\ \hline
+
+		$\begin{pmatrix}
+			1 & a & 3
+		\end{pmatrix}$ &
+		$\begin{pmatrix}
+			1 \\
+			1 \\
+			1
+		\end{pmatrix}$ &
+		Сообщение об ошибке \\ \hline
+			
+		$\begin{pmatrix}
+			1 & 2 & 3
+		\end{pmatrix}$ &
+		$\begin{pmatrix}
+			1 \\
+			a \\
+			1
+		\end{pmatrix}$ &
+		Сообщение об ошибке \\ \hline
+
+		$\begin{pmatrix}
+			1 & 1 & 1
+		\end{pmatrix}$ &
+		$\begin{pmatrix}
+			1 \\
+			1 \\
+			1
+		\end{pmatrix}$ &
+		$\begin{pmatrix}
+			1 & 1 & 1\\
+			1 & 1 & 1 \\
+			1 & 1 & 1
+		\end{pmatrix}$ \\ \hline
+
+		$\begin{pmatrix}
+			1 & 2 & 3 \\
+			4 & 5 & 6 \\
+			7 & 8 & 9
+		\end{pmatrix}$ &
+		$\begin{pmatrix}
+			1 & 0 & 0 \\
+			0 & 1 & 0 \\
+			0 & 0 & 1
+		\end{pmatrix}$ &
+		$\begin{pmatrix}
+			1 & 2 & 3 \\
+			4 & 5 & 6 \\
+			7 & 8 & 9
+		\end{pmatrix}$ \\ \hline
+
+		$\begin{pmatrix}
+			1 & 2 & 3 \\
+			4 & 5 & 6 \\
+			7 & 8 & 9
+		\end{pmatrix}$ &
+		$\begin{pmatrix}
+			1 & 1 \\
+			1 & 1 \\
+			1 & 1 
+		\end{pmatrix}$ &
+		$\begin{pmatrix}
+			6 & 6 \\
+			15 & 15 \\
+			24 & 24
+		\end{pmatrix}$ \\ \hline
+
+		$\begin{pmatrix}
+			2
+		\end{pmatrix}$ &
+		$\begin{pmatrix}
+			2
+		\end{pmatrix}$ &
+		$\begin{pmatrix}
+			4
+		\end{pmatrix}$ \\ \hline
+
+		\end{tabular}
+	\end{center}
+\end{table}
+
+
+\section*{Вывод}
+
+В данном разделе были разработаны исходные коды четырёх алгоритмов перемножения матриц: обычный алгоритм, алгоритм Винограда, Винограда с оптимизацией. Было проведено тестирование реализаций. 

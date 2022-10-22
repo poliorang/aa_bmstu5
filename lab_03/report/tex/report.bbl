@@ -1,0 +1,48 @@
+\begin{thebibliography}{10}
+\def\selectlanguageifdefined#1{
+\expandafter\ifx\csname date#1\endcsname\relax
+\else\language\csname l@#1\endcsname\fi}
+\ifx\undefined\url\def\url#1{{\small #1}}\else\fi
+\ifx\undefined\BibUrl\def\BibUrl#1{\url{#1}}\else\fi
+\ifx\undefined\BibAnnote\long\def\BibAnnote#1{(#1)}\else\fi
+\ifx\undefined\BibEmph\def\BibEmph#1{\emph{#1}}\else\fi
+
+\bibitem{bucket}
+\selectlanguageifdefined{russian}
+Блочная сортировка  [Электронный ресурс].
+\newblock Режим доступа: \url{https://www.programiz.com/dsa/bucket-sort}
+
+\bibitem{shaker}
+\selectlanguageifdefined{russian}
+Сортировка перемешиванием [Электронный ресурс].
+\newblock Режим доступа: \url{https://alley-science.ru/domains_data/files/january-2018/ANALIZ%20ShEYKER-SORTIROVKI%20V%20MASSIVAH.pdf}
+
+
+\bibitem{tree}
+\selectlanguageifdefined{russian}
+Сортировка бинарным деревом [Электронный ресурс].
+\newblock Режим доступа: \url{https://www.raywenderlich.com/990-swift-algorithm-club-swift-binary-search-tree-data-structure}
+
+
+\bibitem{swift}
+\selectlanguageifdefined{russian}
+Swift: Swift | Мультипарадигмальный компилируемый язык [Электронный ресурс].
+\newblock Режим доступа: \url{https://www.apple.com/swift/}
+
+\bibitem{core}
+\selectlanguageifdefined{russian}
+Core Foundation: Сore Foundation | Time Utilities [Электронный ресурс].
+\newblock Режим доступа: \url{https://developer.apple.com/documentation/corefoundation/time_utilities}
+
+\bibitem{xcode}
+\selectlanguageifdefined{russian}
+Xcode: Xcode [Электронный ресурс].
+\newblock Режим доступа: \url{https://developer.apple.com/xcode/}
+
+\bibitem{appcode}
+\selectlanguageifdefined{russian}
+AppCode: AppCode | Smart Swift/Objective-C IDE for iOS [Электронный ресурс].
+\newblock Режим доступа: \url{https://www.jetbrains.com/objc/}
+
+
+\end{thebibliography}
