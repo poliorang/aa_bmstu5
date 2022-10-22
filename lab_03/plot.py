@@ -23,7 +23,7 @@ if __name__ == "__main__":
     ax[1].plot(xx, bucket2, '-o', label='Блочная')
     ax[1].plot(xx, shaker2, '-ro', label='Перемешиванием')
     ax[1].plot(xx, bitree2, '-go', label='Бинарным деревом')
-    ax[1].set(title='Массвы отсортированные')
+    ax[1].set(title='Массивы отсортированные')
     ax[1].legend()
 
     bucket3 = [0.0036, 0.0051, 0.0081, 0.0099, 0.0103, 0.0117, 0.0135]
@@ -38,14 +38,14 @@ if __name__ == "__main__":
 
     fig.tight_layout()
 
-    ax[0].set_xlabel("Время (сек)", fontsize=8)
-    ax[0].set_ylabel("Количество элементов", fontsize=8)
+    ax[0].set_ylabel("Время (сек)", fontsize=8)
+    ax[0].set_xlabel("Количество элементов", fontsize=8)
 
-    ax[1].set_xlabel("Время (сек)", fontsize=8)
-    ax[1].set_ylabel("Количество элементов", fontsize=8)
+    ax[1].set_ylabel("Время (сек)", fontsize=8)
+    ax[1].set_xlabel("Количество элементов", fontsize=8)
 
-    ax[2].set_xlabel("Время (сек)", fontsize=8)
-    ax[2].set_ylabel("Количество элементов", fontsize=8)
+    ax[2].set_ylabel("Время (сек)", fontsize=8)
+    ax[2].set_xlabel("Количество элементов", fontsize=8)
 
     plt.show()
     fig.savefig('saved_figure-100dpi.png', dpi = 100)

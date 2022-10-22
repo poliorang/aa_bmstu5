@@ -1,6 +1,6 @@
 //
 //  functions.swift
-//  lab01
+//  lab_02
 //
 //  Created by poliorang on 15.10.2022.
 //
@@ -8,7 +8,6 @@
 import Foundation
 
 func standardMultiplication(_ matrixA: [[Int]], _ matrixB: [[Int]]) -> [[Int]] {
-//    print("Standard")
     let n = matrixA.count
     let m = matrixA[0].count
     let q = matrixB[0].count
@@ -28,7 +27,6 @@ func standardMultiplication(_ matrixA: [[Int]], _ matrixB: [[Int]]) -> [[Int]] {
 
 
 func Winograd(_ matrixA: [[Int]], _ matrixB: [[Int]]) -> [[Int]] {
-//    print("Winograd")
     let n = matrixA.count
     let m = matrixA[0].count
     let q = matrixB[0].count
@@ -71,7 +69,6 @@ func Winograd(_ matrixA: [[Int]], _ matrixB: [[Int]]) -> [[Int]] {
 }
 
 func WinogradOptimal(_ matrixA: [[Int]], _ matrixB: [[Int]]) -> [[Int]] {
-//    print("Optimal")
     let n = matrixA.count
     let m = matrixA[0].count
     let mCycle = matrixA[0].count >> 1

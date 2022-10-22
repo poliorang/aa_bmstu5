@@ -5,7 +5,7 @@
 \begin{itemize}
 	\item операционная система: macOS Big Sur 11.6.4;
 	\item оперативная память: 8 Гб;
-	\item 2,4 GHz 2‑ядерный процессор Intel Core i5;
+	\item 2,4 Ггц 2‑ядерный процессор Intel Core i5;
 \end{itemize}
 
 Во время тестирования ноутбук был включен в сеть питания.
@@ -113,12 +113,14 @@
 \item сортировка перемешиванием:\begin{itemize}
 	\item переменные right, left -- $2 \cdot MemoryLayout<Int>.size$
 	\item массив -- $N \cdot MemoryLayout<Type>.size$
-	\item переменная-буфер для обмена элементов местами -- $1 \cdot  MemoryLayout<Type>.size$
+	\item переменная-буфер для обмена элементов местами -- 
+	\newline $1 \cdot  MemoryLayout<Type>.size$
 \end{itemize}
 
 \item сортировка бинарным деревом:\begin{itemize}
 	\item массив -- $N \cdot MemoryLayout<Type>.size$
 	\item бинарное дерево -- $N \cdot (3 \cdot MemoryLayout<Type>.size)$
+\end{itemize}
 \end{itemize}
 
 Нетрудно заметить, что самой затратной по памяти является сортировка бинарным деревом из-за необходимости хранить не только массив и несколько вспомогательных переменных, как в двух других реализациях сортировок, но и структуру бинарного дерева. Размеры же памяти, занимаемой сортировкой перемешиванием и блочной, разнятся не сильно. 

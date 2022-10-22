@@ -12,12 +12,10 @@
 
 Кроме того, в Swift есть фреймворк CoreFoundation \cite{core}, который предоставляет функции для замера процессорного времени. В качестве среды разработки выбран XCode \cite{xcode}.
 
+
 \section{Листинги кода}
 
 В листингах 3.1 -- 3.3 представлены реализации рассматриваемых алгоритмов.
-
-\section{Листинги кода}
-
 
 \hspace{0.6cm}В Листинге 3.1 показана реализация алгоритма сортировки бинарным деревом.
 \begin{lstlisting}[caption=Функция алгоритма сортировки бинарным деревом]
@@ -35,9 +33,11 @@ enum BinaryTree<T: Comparable> {
             } else { return .node(left, value, right.newTreeWithInsertedValue(newValue: newValue)) }
         }
     }
+    
     mutating func insert(newValue: T) {
         self = newTreeWithInsertedValue(newValue: newValue)
     }
+    
     func traverseInOrder(process: (T) -> ()) {
         switch self {
         case .empty:
@@ -60,7 +60,7 @@ func binarySearchTreeSort<T: Comparable>(_ array: [T]) -> [T] {
 }
 \end{lstlisting}
 
-\hspace{0.6cm}В Листинге 3.3 показана реализация реализация алгоритма сортировки перемешиванием.
+\hspace{0.6cm}В Листинге 3.2 показана реализация реализация алгоритма сортировки перемешиванием.
 \begin{lstlisting}[caption=Функция алгоритма сортировки перемешиванием]
 func shakerSort<T: Comparable>(_ array: [T]) -> [T] {
     var resultArray = array
@@ -78,7 +78,7 @@ func shakerSort<T: Comparable>(_ array: [T]) -> [T] {
 }
 \end{lstlisting}
 
-В Листинге 3.2 показана реализация оптимизированного алгоритма блочной сортировки.
+\hspace{0.6cm}В Листинге 3.3 показана реализация оптимизированного алгоритма блочной сортировки.
 \begin{lstlisting}[caption=Функция алгоритма блочной сортировки]
 func bucketSort(_ array: [Double]) -> [Double]  {
     var resultArray: [Double] = []

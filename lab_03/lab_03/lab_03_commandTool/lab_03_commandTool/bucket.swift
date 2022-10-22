@@ -52,7 +52,3 @@ func insertionSort(bucket: inout [Double]) {
     }
 }
 
-
-// http://www.algolab.valemak.com/tree-binary
-// https://www.internet-technologies.ru/articles/blochnaya-sortirovka-v-python.html
-// http://www.exforsys.com/tutorials/c-algorithms/radix-sort.html

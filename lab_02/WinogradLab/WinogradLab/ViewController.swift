@@ -42,10 +42,13 @@ class ViewController: UIViewController {
     @IBOutlet weak var kostylOne: UIView!
     @IBOutlet weak var kostylTwo: UIView!
     @IBAction func generateAction(_ sender: Any) {
-        let firstNilSizes = firstSizeField.text?.components(separatedBy: " ").map({Int($0) ?? nil}) ?? [Optional(20), Optional(20)]
-        let secondNilSizes = secondSizeField.text?.components(separatedBy: " ").map({Int($0) ?? nil}) ?? [Optional(20), Optional(20)]
+        var firstNilSizes = firstSizeField.text!.components(separatedBy: " ").map({Int($0) ?? nil})
+        var secondNilSizes = secondSizeField.text!.components(separatedBy: " ").map({Int($0) ?? nil})
         
-        
+        if firstSizeField.text == "" && secondSizeField.text == "" {
+            firstNilSizes = [Optional(20), Optional(20)]
+            secondNilSizes = [Optional(20), Optional(20)]
+        }
         
         if firstNilSizes.count != countOfSizes || firstNilSizes.contains(nil) ||
             secondNilSizes.count != countOfSizes || secondNilSizes.contains(nil) {
@@ -60,32 +63,37 @@ class ViewController: UIViewController {
             nSecond = secondSizes[0]
             mSecond = secondSizes[1]
             
-            firstMatrix = generateMatrix(nFirst, mFirst)
-            secondMatrix = generateMatrix(nSecond, mSecond)
-            
-            if nFirst < 8 && mFirst < 6 && nSecond < 8 && mSecond < 6 {
-                firstMatrixField.text = matrixToString(n: nFirst, m: mFirst, matrix: firstMatrix)
-                secondMatrixField.text = matrixToString(n: nSecond, m: mSecond, matrix: secondMatrix)
+            if nFirst <= 0 || mFirst <= 0 || nSecond <= 0 || mSecond <= 0 {
+                alertManager.showAlert(presentTo: self, title: "Ошибка", message: "Размер матрицы не может быть нулевым")
             } else {
-                firstMatrixField.text = ""
-                secondMatrixField.text = ""
+                firstMatrix = generateMatrix(nFirst, mFirst)
+                secondMatrix = generateMatrix(nSecond, mSecond)
+                
+                if nFirst < 21 && mFirst < 11 && nSecond < 21 && mSecond < 11 {
+                    firstMatrixField.text = matrixToString(n: nFirst, m: mFirst, matrix: firstMatrix)
+                    secondMatrixField.text = matrixToString(n: nSecond, m: mSecond, matrix: secondMatrix)
+                } else {
+                    firstMatrixField.text = ""
+                    secondMatrixField.text = ""
+                }
+                
+                print(nFirst, mFirst, nSecond, mSecond)
+                
+                alertManager.showAlert(presentTo: self, title: "Успешно", message: "Матрицы  \(nFirst)x\(mFirst) и \(nSecond)x\(mSecond) сгенерированы")
             }
-            
-            print(nFirst, mFirst, nSecond, mSecond)
-            
-            alertManager.showAlert(presentTo: self, title: "Успешно", message: "Матрицы сгенерированы")
         }
     }
     
     @IBAction func calculateAction(_ sender: Any) {
         if firstMatrixField.text != "" && secondMatrixField.text != "" {
+            
             if getMatrixs() == false {
                 alertManager.showAlert(presentTo: self, title: "Ошибка", message: "Некорректный элемент матрицы")
             }
-        }
-        
-        if checkSizes(nFirst, mFirst, nSecond, mSecond) == false {
-            alertManager.showAlert(presentTo: self, title: "Ошибка", message: "Некорректные размеры матрицы")
+            
+            if checkSizes(nFirst, mFirst, nSecond, mSecond) == false {
+                alertManager.showAlert(presentTo: self, title: "Ошибка", message: "Некорректные размеры матрицы")
+            }
         }
         
         removeSpinner()
