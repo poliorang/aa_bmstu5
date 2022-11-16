@@ -1,0 +1,53 @@
+\begin{thebibliography}{10}
+\def\selectlanguageifdefined#1{
+\expandafter\ifx\csname date#1\endcsname\relax
+\else\language\csname l@#1\endcsname\fi}
+\ifx\undefined\url\def\url#1{{\small #1}}\else\fi
+\ifx\undefined\BibUrl\def\BibUrl#1{\url{#1}}\else\fi
+\ifx\undefined\BibAnnote\long\def\BibAnnote#1{(#1)}\else\fi
+\ifx\undefined\BibEmph\def\BibEmph#1{\emph{#1}}\else\fi
+
+\bibitem{Nemirovsky}
+\selectlanguageifdefined{russian}
+Mario Nemirovsky D. M. T. Multithreading Architecture // Morgan and Claypool Publishers. 2013.
+
+\bibitem{Olukotun}
+\selectlanguageifdefined{russian}
+Olukotun K. Chip Multiprocessor Architetture -- Techniques to Improve Throughput and Latency // Morgan and Claypool Publishers. 2007. p. 154. 
+
+\bibitem{bucket}
+\selectlanguageifdefined{russian}
+Блочная сортировка  [Электронный ресурс].
+\newblock Режим доступа: \url{https://www.programiz.com/dsa/bucket-sort}
+
+\bibitem{swift}
+\selectlanguageifdefined{russian}
+Swift: Swift | Мультипарадигмальный компилируемый язык [Электронный ресурс].
+\newblock Режим доступа: \url{https://www.apple.com/swift/}
+
+\bibitem{core}
+\selectlanguageifdefined{russian}
+Core Foundation: Сore Foundation | Time Utilities [Электронный ресурс].
+\newblock Режим доступа: \url{https://developer.apple.com/documentation/corefoundation/time_utilities}
+
+\bibitem{xcode}
+\selectlanguageifdefined{russian}
+Xcode: Xcode [Электронный ресурс].
+\newblock Режим доступа: \url{https://developer.apple.com/xcode/}
+
+\bibitem{thread}
+\selectlanguageifdefined{russian}
+NSThread | Apple Developer Documentation [Электронный ресурс].
+\newblock Режим доступа: \url{https://developer.apple.com/documentation/foundation/nsthread}
+
+\bibitem{appcode}
+\selectlanguageifdefined{russian}
+AppCode: AppCode | Smart Swift/Objective-C IDE for iOS [Электронный ресурс].
+\newblock Режим доступа: \url{https://www.jetbrains.com/objc/}
+
+\bibitem{intel}
+\selectlanguageifdefined{russian}
+Intel Core i5 3M Cache 2.4 GHz Спецификации продукции [Электронный ресурс].
+\newblock Режим доступа: \url{https://ark.intel.com/content/www/ru/ru/ark/products/47341/intel-core-i5520m-processor-3m-cache-2-40-ghz.html}
+
+\end{thebibliography}
