@@ -7,13 +7,14 @@
 \ifx\undefined\BibAnnote\long\def\BibAnnote#1{(#1)}\else\fi
 \ifx\undefined\BibEmph\def\BibEmph#1{\emph{#1}}\else\fi
 
-\bibitem{Nemirovsky}
+\bibitem{multithreading}
 \selectlanguageifdefined{russian}
-Mario Nemirovsky D. M. T. Multithreading Architecture // Morgan and Claypool Publishers. 2013.
+Многопоточность [Электронный ресурс].
+\newblock Режим доступа: \url{https://ru.coursera.org/lecture/ios-multithreading/chto-takoie-mnoghopotochnost-4MMgN}  
 
-\bibitem{Olukotun}
+\bibitem{paralleltype}
 \selectlanguageifdefined{russian}
-Olukotun K. Chip Multiprocessor Architetture -- Techniques to Improve Throughput and Latency // Morgan and Claypool Publishers. 2007. p. 154. 
+Воеводин Владимир Валентинович Параллелизм в сложных программных комплексах (почему сложно создавать эффективные прикладные пакеты)./В. В. Воеводин.//Чебышевский Сборник. -- 2017. -- Том 18. -- 3. -- С.192--195.
 
 \bibitem{bucket}
 \selectlanguageifdefined{russian}
@@ -39,11 +40,6 @@ Xcode: Xcode [Электронный ресурс].
 \selectlanguageifdefined{russian}
 NSThread | Apple Developer Documentation [Электронный ресурс].
 \newblock Режим доступа: \url{https://developer.apple.com/documentation/foundation/nsthread}
-
-\bibitem{appcode}
-\selectlanguageifdefined{russian}
-AppCode: AppCode | Smart Swift/Objective-C IDE for iOS [Электронный ресурс].
-\newblock Режим доступа: \url{https://www.jetbrains.com/objc/}
 
 \bibitem{intel}
 \selectlanguageifdefined{russian}

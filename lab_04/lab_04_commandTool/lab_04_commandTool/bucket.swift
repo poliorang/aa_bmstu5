@@ -16,12 +16,16 @@ func bucketSort(_ array: [Double], _ threads: Int) -> [Double]  {
     let offset = array.filter { $0 < 0 }.count
 
     var sizeValue = maxValue / Double(lenArray) as Double
-    
-    if minValue < 0 { sizeValue = maxValue + (-minValue) / Double(lenArray) as Double }
-    
+
+    if minValue < 0 {
+        sizeValue = maxValue + (-minValue) / Double(lenArray) as Double
+    }
+
     var buckets: [[Double]] = []
-    for _ in 0..<lenArray { buckets.append([]) }
-    
+    for _ in 0..<lenArray {
+        buckets.append([])
+    }
+
     for i in 0..<lenArray {
         let j = Int(array[i] / sizeValue)
         
@@ -31,12 +35,12 @@ func bucketSort(_ array: [Double], _ threads: Int) -> [Double]  {
             buckets[lenArray - 1].append(array[i])
         }
     }
-    
+
     for i in 0..<lenArray {
         insertionSort(bucket: &buckets[i])
         resultArray.append(contentsOf: buckets[i])
     }
-    
+
     return resultArray
 }
 
